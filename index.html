@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Happy Promise Day 🤍💍</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="hearts"></div>
+
+  <div class="container">
+    <h1>Happy Promise Day 💍🤍<br><span id="name"></span></h1>
+    <p class="quote">“Promises are not words, they are feelings kept forever.”</p>
+
+    <div class="memories">
+      <div class="memory-frame">
+        <!-- Ensure these files exist; change to .jpg if your real files are .jpg -->
+        <img src="pic/promise1.jpeg" class="active" alt="Memory 1" />
+        <img src="pic/promise2.jpeg" alt="Memory 2" />
+        <img src="pic/promise3.jpeg" alt="Memory 3" />
+      </div>
+    </div>
+
+    <p class="message" id="typeText"></p>
+
+    <!-- Exposed from script.js -->
+    <button class="btn" type="button" onclick="showAllCards()">Promises I Make To You 💍</button>
+
+    <div class="signature">— #Ayushyam</div>
+  </div>
+
+  <!-- 🤍 PROMISE CARDS -->
+  <div class="side-cards" id="sideCards">
+
+    <div class="flip-card" onclick="flipCard(this)">
+      <div class="flip-inner">
+        <div class="flip-front"><span>I Promise 🤍</span></div>
+        <div class="flip-back"><span>To always choose you, even on the hardest days.</span></div>
+      </div>
+    </div>
+
+    <div class="flip-card" onclick="flipCard(this)">
+      <div class="flip-inner">
+        <div class="flip-front"><span>I Promise 💍</span></div>
+        <div class="flip-back"><span>To stand beside you, not in front or behind.</span></div>
+      </div>
+    </div>
+
+    <div class="flip-card" onclick="flipCard(this)">
+      <div class="flip-inner">
+        <div class="flip-front"><span>I Promise 🕊️</span></div>
+        <div class="flip-back"><span>To listen, understand, and never give up on us.</span></div>
+      </div>
+    </div>
+
+    <div class="flip-card" onclick="flipCard(this)">
+      <div class="flip-inner">
+        <div class="flip-front"><span>I Promise ✨</span></div>
+        <div class="flip-back"><span>To love you not perfectly, but honestly.</span></div>
+      </div>
+    </div>
+
+    <!-- ↩️ Opens modal to collect text; on submit we log & flip back -->
+    <button id="resetBtn" type="button" onclick="openResponseModal()">
+      Take My Response Back ↩️
+    </button>
+  </div>
+
+  <!-- 🎵 MUSIC -->
+  <audio id="bgMusic" preload="none">
+    <source src="pic/Ishqa_Ve.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- 🧾 Text Response Modal -->
+  <div id="responseModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="respTitle" aria-modal="true">
+    <div class="modal-box">
+      <button class="modal-close" aria-label="Close" onclick="cancelTextResponse()">×</button>
+      <h2 id="respTitle">Your Response</h2>
+      <p class="modal-sub">What would you like to say?</p>
+      <textarea id="responseInput" rows="4" placeholder="Type your message..." maxlength="500"></textarea>
+      <div class="modal-actions">
+        <button type="button" class="btn-secondary" onclick="cancelTextResponse()">Cancel</button>
+        <button type="button" class="btn-primary" onclick="submitTextResponse()">Submit</button>
+      </div>
+      <div id="respError" class="error" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <!-- App (ES module) -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
